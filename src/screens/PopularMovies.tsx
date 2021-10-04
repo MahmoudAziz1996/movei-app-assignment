@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 
 const PopularScreen = () => {
   return (
-    <View>
+    <View style={styles.wrapper}>
       <Text>PopularScreen</Text>
     </View>
   );
@@ -11,4 +11,9 @@ const PopularScreen = () => {
 
 export default PopularScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  wrapper: {
+    backgroundColor: '#FFF',
+    flex: 1,
+  },
+});

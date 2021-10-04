@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 
 const MovieDetail = (): React.ReactElement => {
   return (
-    <View>
+    <View style={styles.wrapper}>
       <Text>Detail Screen</Text>
     </View>
   );
@@ -11,4 +11,9 @@ const MovieDetail = (): React.ReactElement => {
 
 export default MovieDetail;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  wrapper: {
+    backgroundColor: '#FFF',
+    flex: 1,
+  },
+});

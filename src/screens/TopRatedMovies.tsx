@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 
 const TopRatedMovies = () => {
   return (
-    <View>
+    <View style={styles.wrapper}>
       <Text>TopRatedMovies</Text>
     </View>
   );
@@ -11,4 +11,9 @@ const TopRatedMovies = () => {
 
 export default TopRatedMovies;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  wrapper: {
+    backgroundColor: '#FFF',
+    flex: 1,
+  },
+});
