@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   headerTitle: {
+    marginTop: wp(4),
     fontWeight: 'bold',
     fontSize: wp(7),
   },

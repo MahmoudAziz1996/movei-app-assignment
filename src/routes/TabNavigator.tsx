@@ -26,6 +26,7 @@ const TopTabNavigator = (): React.ReactElement => {
         lazy: true,
         swipeEnabled: false,
         tabBarActiveTintColor: '#ffffff',
+        tabBarPressColor: 'transparent',
         tabBarInactiveTintColor: '#000',
         tabBarIndicator: () => null,
         tabBarStyle: {backgroundColor: 'transparent'},

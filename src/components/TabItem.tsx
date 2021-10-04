@@ -18,7 +18,7 @@ const TabItem: FC<Props> = ({focused, label}) => {
         shadowOpacity: focused ? 0.2 : 0,
         shadowOffset: {width: 0, height: 8},
         shadowRadius: 5,
-        elevation: focused ? 4 : 0, // For Android
+        elevation: focused ? 15 : 0, // For Android
         width: wp(30),
       }}>
       <Text
