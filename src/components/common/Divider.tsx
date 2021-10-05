@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
@@ -9,11 +9,11 @@ export interface Props {
   margin?: number;
 }
 
-const Divider: FC<Props> = ({width, height, color, margin}) => {
+const Divider: React.FC<Props> = ({width, height, color, margin}) => {
   return (
     <View
       style={{
-        width: width || wp(100),
+        width: width || '100%',
         height,
         backgroundColor: color || 'transparent',
         alignSelf: 'center',
