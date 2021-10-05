@@ -24,9 +24,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   headerTitle: {
-    marginTop: wp(4),
+    paddingTop: wp(4),
     fontWeight: 'bold',
     fontSize: wp(7),
     paddingLeft: wp(4),
+    backgroundColor: '#fff',
   },
 });

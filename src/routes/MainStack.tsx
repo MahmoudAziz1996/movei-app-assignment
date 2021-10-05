@@ -1,4 +1,5 @@
 import React from 'react';
+import {Platform} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomePage from '../screens/HomeScreen';
 import DetailPage from '../screens/MovieDetail';
@@ -25,7 +26,11 @@ const MainNavigation = (): React.ReactElement => {
           headerShadowVisible: false,
           headerTintColor: '#000',
         }}>
-        <MainStack.Screen name={MainRoutes.Main} component={HomePage} />
+        <MainStack.Screen
+          options={{header: () => undefined}}
+          name={MainRoutes.Main}
+          component={HomePage}
+        />
         <MainStack.Screen
           name={MainRoutes.Detail}
           component={DetailPage}
