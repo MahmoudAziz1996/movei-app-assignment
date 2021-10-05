@@ -30,6 +30,7 @@ const PopularScreen = ({navigation}: any) => {
         <FlatList
           contentContainerStyle={{
             padding: wp(5),
+            paddingTop: wp(2),
           }}
           renderItem={({item}) => (
             <MovieItem navigation={navigation} film={item} />

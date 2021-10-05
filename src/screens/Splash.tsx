@@ -1,15 +1,12 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import {StyleSheet, Image, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 
 const Splash = () => {
   return (
-    <LinearGradient
-      colors={['#FFF', '#DDD', '#000']}
-      style={styles.linearGradient}>
+    <View style={styles.linearGradient}>
       <Image style={styles.image} source={require('../images/splash.png')} />
-    </LinearGradient>
+    </View>
   );
 };
 

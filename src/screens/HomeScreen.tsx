@@ -1,12 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import TabNavigator from '../routes/TabNavigator';
 const HomeScreen = ({navigation}: any): React.ReactElement => {
   React.useLayoutEffect(() => {
     navigation.setOptions({
-      headerLeft: () => <Text style={styles.headerTitle}>Movies</Text>,
-      title: '',
+      header: () => <Text style={styles.headerTitle}>Movies</Text>,
     });
   }, []);
 
@@ -28,5 +27,6 @@ const styles = StyleSheet.create({
     marginTop: wp(4),
     fontWeight: 'bold',
     fontSize: wp(7),
+    paddingLeft: wp(4),
   },
 });

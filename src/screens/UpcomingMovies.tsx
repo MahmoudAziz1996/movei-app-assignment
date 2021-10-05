@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import MovieItem from '../components/listTiles/MovieItem';
-import {randomMovie} from '../utils/constants';
 import {fetchUpcomingMovies} from '../api/movies';
-import {Movie, MovieResponse} from '../utils/models';
+import {Movie} from '../utils/models';
 import {Divider} from '../components/common';
 
 const UpcomingScreen = ({navigation}: any) => {
@@ -31,6 +30,7 @@ const UpcomingScreen = ({navigation}: any) => {
         <FlatList
           contentContainerStyle={{
             padding: wp(5),
+            paddingTop: wp(2),
           }}
           renderItem={({item}) => (
             <MovieItem navigation={navigation} film={item} />
