@@ -1,8 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import Divider from '../common/Divider';
-import ClipRect from '../common/ClipRRect';
+import {Divider, Avatar} from '../common';
 
 interface Props {
   imagePath: string | null;
@@ -17,12 +16,7 @@ const CreditItem: React.FC<Props> = ({imagePath, actorName}) => {
         alignSelf: 'baseline',
         alignItems: 'center',
       }}>
-      <ClipRect
-        width={wp(20)}
-        height={wp(20)}
-        rounded
-        imageUrl={imagePath ? imagePath : ''}
-      />
+      <Avatar imageUrl={imagePath ? imagePath : ''} />
       <Divider height={wp(2)} />
       <Text
         style={{

@@ -7,21 +7,20 @@ interface Props {
   imageUrl: string;
   width?: number;
   height?: number;
-  rounded?: boolean;
 }
 
-const ClipRRect: React.FC<Props> = ({imageUrl, width, height, rounded}) => {
+const Avatar: React.FC<Props> = ({imageUrl, width, height}) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   let imagePath = imageUrl
     ? {uri: `${LOGO_PATH}${imageUrl}`}
-    : require('../../images/placeholder.jpeg');
+    : require('../../images/blank-profile.jpg');
   return (
     <Image
       style={{
-        height: height || '100%',
-        width: width || '30%',
-        borderRadius: rounded ? wp(50) : wp(5),
+        height: height || wp(20),
+        width: width || wp(20),
+        borderRadius: wp(50),
         borderWidth: 0.5,
         borderColor: '#ddd',
       }}
@@ -31,4 +30,4 @@ const ClipRRect: React.FC<Props> = ({imageUrl, width, height, rounded}) => {
   );
 };
 
-export default ClipRRect;
+export default Avatar;

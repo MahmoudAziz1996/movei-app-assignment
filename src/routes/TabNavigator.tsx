@@ -1,5 +1,4 @@
 import React from 'react';
-import {Text, View} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import UpcomingScreen from '../screens/UpcomingMovies';
 import PopularScreen from '../screens/PopularMovies';

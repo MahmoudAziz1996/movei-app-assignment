@@ -1,12 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  ActivityIndicator,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-} from 'react-native';
+import {ScrollView, StyleSheet, Text, View, FlatList} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {fetchMovieCast} from '../api/movies';
 import {ClipRect, Divider} from '../components/common';

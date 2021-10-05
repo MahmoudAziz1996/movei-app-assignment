@@ -36,7 +36,7 @@ const UpcomingScreen = ({navigation}: any) => {
           renderItem={({item}) => (
             <MovieItem navigation={navigation} film={item} />
           )}
-          data={upcomingMovies?.slice(0, 10)}
+          data={upcomingMovies?.slice(0, 15)}
           ItemSeparatorComponent={() => <Divider height={8} />}
         />
       )}
