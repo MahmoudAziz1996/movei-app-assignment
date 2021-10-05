@@ -5,6 +5,7 @@ import MovieItem from '../components/listTiles/MovieItem';
 import {fetchTopRatedMovies} from '../api/movies';
 import {Movie} from '../utils/models';
 import {Divider} from '../components/common';
+import MoveiLoader from '../components/placeholders/MoveiLoader';
 
 const TopRatedScreen = ({navigation}: any) => {
   const [upcomingMovies, setUpcomingMovies] = useState<Movie[] | undefined>([]);
@@ -25,7 +26,7 @@ const TopRatedScreen = ({navigation}: any) => {
   return (
     <View style={styles.wrapper}>
       {loading ? (
-        <ActivityIndicator size={'large'} />
+        <MoveiLoader />
       ) : (
         <FlatList
           contentContainerStyle={{

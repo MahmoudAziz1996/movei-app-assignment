@@ -13,6 +13,7 @@ import {ClipRect, Divider} from '../components/common';
 import CreditItem from '../components/listTiles/CreditItem';
 import GenresView from '../components/GenresView';
 import {Movie, Cast} from '../utils/models';
+import ActorLoader from '../components/placeholders/ActorLoader';
 
 interface Props {
   route: any;
@@ -39,11 +40,7 @@ const MovieDetail: React.FC<Props> = ({route, navigation}) => {
   return (
     <ScrollView
       style={{backgroundColor: '#fff'}}
-      contentContainerStyle={{
-        flexGrow: 1,
-        padding: wp(5),
-        paddingVertical: wp(2),
-      }}>
+      contentContainerStyle={styles.scrollContainer}>
       <View style={styles.wrapper}>
         <View style={styles.topSection}>
           <ClipRect
@@ -70,14 +67,12 @@ const MovieDetail: React.FC<Props> = ({route, navigation}) => {
           <Text style={styles.sectionTitle}>Credits</Text>
           <Divider height={wp(4)} />
           {loading ? (
-            <ActivityIndicator size={'large'} />
+            <ActorLoader />
           ) : (
             <FlatList
               showsHorizontalScrollIndicator={false}
               horizontal
-              contentContainerStyle={{
-                padding: wp(5),
-              }}
+              contentContainerStyle={{}}
               renderItem={({item}) => (
                 <CreditItem
                   actorName={item.name}
@@ -102,6 +97,11 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: '#FFF',
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    padding: wp(5),
+    paddingVertical: wp(2),
   },
   topSection: {
     alignItems: 'center',
