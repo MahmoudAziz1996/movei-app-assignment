@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import MovieItem from '../components/MovieItem';
-import {randomMovie} from '../utils/constants';
+import MovieItem from '../components/listTiles/MovieItem';
 import {fetchPopularMovies} from '../api/movies';
-import {Movie, MovieResponse} from '../utils/models';
+import {Movie} from '../utils/models';
 import {Divider} from '../components/common';
 
 const PopularScreen = ({navigation}: any) => {

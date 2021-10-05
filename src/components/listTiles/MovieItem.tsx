@@ -1,11 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
-import Divider from '../components/common/Divider';
+import Divider from '../common/Divider';
 import moment from 'moment';
-import GenresView from '../components/GenresView';
-import {ClipRect, Spacer} from '../components/common';
+import GenresView from '../GenresView';
+import {ClipRect, Spacer} from '../common';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {Movie} from '../utils/models';
+import {Movie} from '../../utils/models';
 
 const MovieItem: React.FC<{film: Movie; navigation: any}> = props => {
   let {film, navigation} = props;

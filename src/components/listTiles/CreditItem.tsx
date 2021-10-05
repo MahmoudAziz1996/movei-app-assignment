@@ -1,8 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import Divider from './common/Divider';
-import ClipRect from './common/ClipRRect';
+import Divider from '../common/Divider';
+import ClipRect from '../common/ClipRRect';
 
 interface Props {
   imagePath: string | null;

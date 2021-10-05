@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import MovieItem from '../components/MovieItem';
+import MovieItem from '../components/listTiles/MovieItem';
 import {randomMovie} from '../utils/constants';
 import {fetchUpcomingMovies} from '../api/movies';
 import {Movie, MovieResponse} from '../utils/models';

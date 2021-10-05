@@ -10,7 +10,7 @@ import {
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {fetchMovieCast} from '../api/movies';
 import {ClipRect, Divider} from '../components/common';
-import CreditItem from '../components/CreditItem';
+import CreditItem from '../components/listTiles/CreditItem';
 import GenresView from '../components/GenresView';
 import {Movie, Cast} from '../utils/models';
 

@@ -4,7 +4,7 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import UpcomingScreen from '../screens/UpcomingMovies';
 import PopularScreen from '../screens/PopularMovies';
 import TopRateScreen from '../screens/TopRatedMovies';
-import TabItem from '../components/TabItem';
+import TabItem from '../components/listTiles/TabItem';
 
 export enum TabRoutes {
   Popular = 'PopularScreen',
