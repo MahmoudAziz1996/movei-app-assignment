@@ -12,7 +12,7 @@ import {MovieResponse, Movie} from '../../utils/models';
 export function fetchUpcomingMovies() {
   return async (dispatch: Dispatch) => {
     dispatch(getUpcomingMovies());
-    const result = await api
+    await api
       .get<MovieResponse>(`/movie/upcoming`, {}, {params: {api_key: API_KEY}})
       .then(response => {
         if (response.ok) {

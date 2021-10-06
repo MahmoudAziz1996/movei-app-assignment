@@ -15,6 +15,7 @@ export default function todosReducer(state = initialState, action: any) {
     case FETCH_POPULAR_MOVIES:
       return {
         ...state,
+        error: false,
         isFetching: true,
       };
     case FETCH_POPULAR_SUCCESS:

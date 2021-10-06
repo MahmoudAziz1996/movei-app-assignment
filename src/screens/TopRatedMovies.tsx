@@ -2,30 +2,33 @@ import React, {useState, useEffect} from 'react';
 import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import MovieItem from '../components/listTiles/MovieItem';
-import {fetchTopRatedMovies} from '../api/movies';
-import {Movie} from '../utils/models';
+import {connect} from 'react-redux';
+import {fetchTopRatedMovies} from '../redux/actions';
 import {Divider} from '../components/common';
 import MoveiLoader from '../components/placeholders/MoveiLoader';
+import NetwokError from '../components/NetwokError';
 
-const TopRatedScreen = ({navigation}: any) => {
-  const [upcomingMovies, setUpcomingMovies] = useState<Movie[] | undefined>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+interface Props {
+  navigation: any;
+  fetchTopRatedMovies: Function;
+  topRatedReducer: any;
+}
+
+const TopRatedScreen: React.FC<Props> = ({
+  navigation,
+  fetchTopRatedMovies,
+  topRatedReducer,
+}) => {
+  const {isFetching, topRatedMovies, error} = topRatedReducer;
 
   useEffect(() => {
-    fetchTopRatedMovies().then(response => {
-      setLoading(false);
-      if (response.ok) {
-        let result = response.data?.results;
-        setUpcomingMovies(result);
-      } else {
-        console.log(response.problem);
-      }
-    });
+    fetchTopRatedMovies();
   }, []);
 
   return (
     <View style={styles.wrapper}>
-      {loading ? (
+      {error && <NetwokError onRefresh={fetchTopRatedMovies} />}
+      {isFetching ? (
         <MoveiLoader />
       ) : (
         <FlatList
@@ -36,15 +39,20 @@ const TopRatedScreen = ({navigation}: any) => {
           renderItem={({item}) => (
             <MovieItem navigation={navigation} film={item} />
           )}
-          data={upcomingMovies?.slice(0, 15)}
+          data={topRatedMovies?.slice(0, 15)}
           ItemSeparatorComponent={() => <Divider height={8} />}
         />
       )}
     </View>
   );
 };
+function mapStateToProps(state: any) {
+  return {
+    topRatedReducer: state.topRatedReducer,
+  };
+}
 
-export default TopRatedScreen;
+export default connect(mapStateToProps, {fetchTopRatedMovies})(TopRatedScreen);
 
 const styles = StyleSheet.create({
   wrapper: {

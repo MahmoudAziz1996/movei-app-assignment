@@ -15,6 +15,7 @@ export default function topRatedReducer(state = initialState, action: any) {
     case FETCH_TOP_RATED_MOVIES:
       return {
         ...state,
+        error: false,
         isFetching: true,
       };
     case FETCH_TOP_RATED_SUCCESS:

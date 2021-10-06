@@ -1,30 +1,30 @@
 import {
-  FETCH_UPCOMING_MOVIES,
-  FETCH_UPCOMING_FAILURE,
-  FETCH_UPCOMING_SUCCESS,
+  FETCH_MOVEI_CAST,
+  FETCH_MOVEI_CAST_FAILURE,
+  FETCH_MOVEI_CAST_SUCCESS,
 } from '../types';
 
 const initialState = {
-  upcomingMovies: [],
+  movieCasts: [],
   isFetching: false,
   error: false,
 };
 
-export default function todosReducer(state = initialState, action: any) {
+export default function castReducer(state = initialState, action: any) {
   switch (action.type) {
-    case FETCH_UPCOMING_MOVIES:
+    case FETCH_MOVEI_CAST:
       return {
         ...state,
         error: false,
         isFetching: true,
       };
-    case FETCH_UPCOMING_SUCCESS:
+    case FETCH_MOVEI_CAST_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        upcomingMovies: action.payload,
+        movieCasts: action.payload,
       };
-    case FETCH_UPCOMING_FAILURE:
+    case FETCH_MOVEI_CAST_FAILURE:
       return {
         ...state,
         isFetching: false,

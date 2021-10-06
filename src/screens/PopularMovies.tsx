@@ -7,6 +7,7 @@ import {Divider} from '../components/common';
 import {connect} from 'react-redux';
 import {fetchPopularMovies} from '../redux/actions';
 import MoveiLoader from '../components/placeholders/MoveiLoader';
+import NetwokError from '../components/NetwokError';
 
 interface Props {
   navigation: any;
@@ -27,6 +28,7 @@ const PopularScreen: React.FC<Props> = ({
 
   return (
     <View style={styles.wrapper}>
+      {error && <NetwokError onRefresh={fetchPopularMovies} />}
       {isFetching ? (
         <MoveiLoader />
       ) : (

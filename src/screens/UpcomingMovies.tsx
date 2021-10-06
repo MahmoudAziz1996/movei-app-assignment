@@ -4,9 +4,9 @@ import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import MovieItem from '../components/listTiles/MovieItem';
 import {Divider} from '../components/common';
 import MoveiLoader from '../components/placeholders/MoveiLoader';
-import {Dispatch} from 'redux';
 import {connect} from 'react-redux';
 import {fetchUpcomingMovies} from '../redux/actions';
+import NetwokError from '../components/NetwokError';
 
 interface Props {
   navigation: any;
@@ -26,6 +26,8 @@ const UpcomingScreen: React.FC<Props> = ({
 
   return (
     <View style={styles.wrapper}>
+      {error && <NetwokError onRefresh={fetchUpcomingMovies} />}
+
       {isFetching ? (
         <MoveiLoader />
       ) : (

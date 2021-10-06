@@ -6,7 +6,7 @@ import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 const MoveiLoader = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <SkeletonPlaceholder>
+      <SkeletonPlaceholder speed={3000}>
         {Array.from('Feat').map((_, index) => (
           <View key={index} style={styles.wrapper} />
         ))}

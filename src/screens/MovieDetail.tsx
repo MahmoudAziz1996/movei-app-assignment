@@ -1,33 +1,27 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {ScrollView, StyleSheet, Text, View, FlatList} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
-import {fetchMovieCast} from '../api/movies';
 import {ClipRect, Divider} from '../components/common';
 import CreditItem from '../components/listTiles/CreditItem';
 import GenresView from '../components/GenresView';
-import {Movie, Cast} from '../utils/models';
+import {Movie} from '../utils/models';
 import ActorLoader from '../components/placeholders/ActorLoader';
+import {connect} from 'react-redux';
+import {fetchMovieCast} from '../redux/actions';
 
 interface Props {
   route: any;
-  navigation: any;
+  fetchMovieCast: Function;
+  castReducer: any;
 }
 
-const MovieDetail: React.FC<Props> = ({route, navigation}) => {
+const MovieDetail: React.FC<Props> = ({route, fetchMovieCast, castReducer}) => {
+  const {isFetching, movieCasts, error} = castReducer;
+
   const movieItem: Movie = route.params.movieItem;
-  const [credits, setCredits] = useState<Cast[] | undefined>([]);
-  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    fetchMovieCast(movieItem.id).then(response => {
-      setLoading(false);
-      if (response.ok) {
-        let result = response.data?.cast;
-        setCredits(result);
-      } else {
-        console.log(response.problem);
-      }
-    });
+    fetchMovieCast(movieItem.id);
   }, []);
 
   return (
@@ -59,7 +53,7 @@ const MovieDetail: React.FC<Props> = ({route, navigation}) => {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Credits</Text>
           <Divider height={wp(4)} />
-          {loading ? (
+          {isFetching ? (
             <ActorLoader />
           ) : (
             <FlatList
@@ -72,7 +66,7 @@ const MovieDetail: React.FC<Props> = ({route, navigation}) => {
                   imagePath={item.profile_path}
                 />
               )}
-              data={credits?.slice(0, 10)}
+              data={movieCasts?.slice(0, 10)}
               ItemSeparatorComponent={() => (
                 <Divider width={wp(3)} height={0} />
               )}
@@ -84,7 +78,13 @@ const MovieDetail: React.FC<Props> = ({route, navigation}) => {
   );
 };
 
-export default MovieDetail;
+function mapStateToProps(state: any) {
+  return {
+    castReducer: state.castReducer,
+  };
+}
+
+export default connect(mapStateToProps, {fetchMovieCast})(MovieDetail);
 
 const styles = StyleSheet.create({
   wrapper: {
