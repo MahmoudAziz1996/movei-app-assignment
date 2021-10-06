@@ -1,31 +1,32 @@
-import React, {useState, useEffect} from 'react';
-import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, FlatList, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import MovieItem from '../components/listTiles/MovieItem';
-import {fetchUpcomingMovies} from '../api/movies';
-import {Movie} from '../utils/models';
 import {Divider} from '../components/common';
 import MoveiLoader from '../components/placeholders/MoveiLoader';
+import {Dispatch} from 'redux';
+import {connect} from 'react-redux';
+import {fetchUpcomingMovies} from '../redux/actions';
 
-const UpcomingScreen = ({navigation}: any) => {
-  const [upcomingMovies, setUpcomingMovies] = useState<Movie[] | undefined>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+interface Props {
+  navigation: any;
+  fetchUpcomingMovies: Function;
+  movieReducers: any;
+}
 
+const UpcomingScreen: React.FC<Props> = ({
+  navigation,
+  fetchUpcomingMovies,
+  movieReducers,
+}) => {
+  const {isFetching, upcomingMovies, error} = movieReducers;
   useEffect(() => {
-    fetchUpcomingMovies().then(response => {
-      setLoading(false);
-      if (response.ok) {
-        let result = response.data?.results;
-        setUpcomingMovies(result);
-      } else {
-        console.log(response.problem);
-      }
-    });
+    fetchUpcomingMovies();
   }, []);
 
   return (
     <View style={styles.wrapper}>
-      {loading ? (
+      {isFetching ? (
         <MoveiLoader />
       ) : (
         <FlatList
@@ -43,8 +44,13 @@ const UpcomingScreen = ({navigation}: any) => {
     </View>
   );
 };
+function mapStateToProps(state: any) {
+  return {
+    movieReducers: state.movieReducers,
+  };
+}
 
-export default UpcomingScreen;
+export default connect(mapStateToProps, {fetchUpcomingMovies})(UpcomingScreen);
 
 const styles = StyleSheet.create({
   wrapper: {
