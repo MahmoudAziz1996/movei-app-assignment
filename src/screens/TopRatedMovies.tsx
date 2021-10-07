@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, FlatList, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import MovieItem from '../components/listTiles/MovieItem';
 import {connect} from 'react-redux';
@@ -32,10 +32,7 @@ const TopRatedScreen: React.FC<Props> = ({
         <MoveiLoader />
       ) : (
         <FlatList
-          contentContainerStyle={{
-            padding: wp(5),
-            paddingTop: wp(2),
-          }}
+          contentContainerStyle={styles.listContainer}
           renderItem={({item}) => (
             <MovieItem navigation={navigation} film={item} />
           )}
@@ -58,5 +55,9 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#FFF',
     flex: 1,
+  },
+  listContainer: {
+    padding: wp(5),
+    paddingTop: wp(2),
   },
 });

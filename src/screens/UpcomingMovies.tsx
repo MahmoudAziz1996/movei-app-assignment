@@ -32,10 +32,7 @@ const UpcomingScreen: React.FC<Props> = ({
         <MoveiLoader />
       ) : (
         <FlatList
-          contentContainerStyle={{
-            padding: wp(5),
-            paddingTop: wp(2),
-          }}
+          contentContainerStyle={styles.listContainer}
           renderItem={({item}) => (
             <MovieItem navigation={navigation} film={item} />
           )}
@@ -58,5 +55,9 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#FFF',
     flex: 1,
+  },
+  listContainer: {
+    padding: wp(5),
+    paddingTop: wp(2),
   },
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import TabNavigator from '../routes/TabNavigator';
+
 const HomeScreen = ({navigation}: any): React.ReactElement => {
   React.useLayoutEffect(() => {
     navigation.setOptions({

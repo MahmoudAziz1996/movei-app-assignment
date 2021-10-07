@@ -12,22 +12,15 @@ const TabItem: React.FC<Props> = ({focused, label}) => {
     <View
       style={{
         backgroundColor: focused ? '#67B239' : '#D8D8D8',
-        borderRadius: wp(50),
-        padding: 8,
-        paddingHorizontal: 12,
-        shadowOpacity: focused ? 0.3 : 0,
-        shadowOffset: {width: 0, height: 0},
-        shadowRadius: 10,
-        elevation: focused ? 15 : 0, //Shadow For Android
-        width: wp(30),
+        shadowOpacity: focused ? 0.4 : 0,
+        shadowRadius: 12,
+        elevation: focused ? 16 : 0, //Shadow For Android
+        ...styles.wrapper,
       }}>
       <Text
         style={{
-          textAlign: 'center',
-          borderRadius: wp(50),
           color: focused ? '#FFF' : '#000',
-          fontSize: wp(4),
-          fontWeight: '600',
+          ...styles.title,
         }}>
         {label}
       </Text>
@@ -36,3 +29,19 @@ const TabItem: React.FC<Props> = ({focused, label}) => {
 };
 
 export default TabItem;
+
+const styles = StyleSheet.create({
+  wrapper: {
+    borderRadius: wp(50),
+    padding: 8,
+    paddingHorizontal: 12,
+    width: wp(30),
+    shadowOffset: {width: 0, height: 0},
+  },
+  title: {
+    fontSize: wp(4),
+    fontWeight: '600',
+    textAlign: 'center',
+    borderRadius: wp(50),
+  },
+});

@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {StyleSheet, FlatList, View, ActivityIndicator} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, FlatList, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import MovieItem from '../components/listTiles/MovieItem';
-import {Movie} from '../utils/models';
 import {Divider} from '../components/common';
 import {connect} from 'react-redux';
 import {fetchPopularMovies} from '../redux/actions';
@@ -33,10 +32,7 @@ const PopularScreen: React.FC<Props> = ({
         <MoveiLoader />
       ) : (
         <FlatList
-          contentContainerStyle={{
-            padding: wp(5),
-            paddingTop: wp(2),
-          }}
+          contentContainerStyle={styles.listContainer}
           renderItem={({item}) => (
             <MovieItem navigation={navigation} film={item} />
           )}
@@ -47,6 +43,7 @@ const PopularScreen: React.FC<Props> = ({
     </View>
   );
 };
+
 function mapStateToProps(state: any) {
   return {
     popularReducer: state.popularReducers,
@@ -59,5 +56,9 @@ const styles = StyleSheet.create({
   wrapper: {
     backgroundColor: '#FFF',
     flex: 1,
+  },
+  listContainer: {
+    padding: wp(5),
+    paddingTop: wp(2),
   },
 });

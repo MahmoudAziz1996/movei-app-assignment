@@ -11,11 +11,7 @@ const GenresView: React.FC<Props> = ({genresIds}) => {
   const genres = filterGenresById(genresIds);
 
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-      }}>
+    <View style={styles.wrapper}>
       {genres.slice(0, 5).map(item => {
         return (
           <View key={item.id} style={styles.gnreWrapper}>
@@ -30,6 +26,10 @@ const GenresView: React.FC<Props> = ({genresIds}) => {
 export default GenresView;
 
 const styles = StyleSheet.create({
+  wrapper: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
   title: {
     color: '#000',
     fontWeight: '500',
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: wp(3),
     paddingVertical: wp(1),
     borderRadius: wp(50),
-    margin: 2,
+    margin: wp(0.8),
   },
 });
