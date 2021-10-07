@@ -55,3 +55,14 @@ export type GenresReducer = {
   isFetching: boolean;
   error: boolean;
 };
+
+export type MovierReducer = {
+  movies: Array<Movie>;
+  isFetching: boolean;
+  error: boolean;
+};
+
+export type RouteParamList = {
+  HomeScreen: undefined;
+  DetailScreen: undefined;
+};

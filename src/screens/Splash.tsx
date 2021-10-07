@@ -1,23 +1,10 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {StyleSheet, Image, View} from 'react-native';
 import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
 import {connect} from 'react-redux';
 import {fetchGenres} from '../redux/actions';
-import {GenresReducer} from '../utils/models';
 
-interface Props {
-  fetchGenres: Function;
-  genresReducer: GenresReducer;
-}
-
-const Splash: React.FC<Props> = ({fetchGenres, genresReducer}) => {
-  const {isFetching, genres, error} = genresReducer;
-
-  useEffect(() => {
-    console.log(genres.length);
-    !genres.length && fetchGenres();
-  }, []);
-
+const Splash = () => {
   return (
     <View style={styles.linearGradient}>
       <Image style={styles.image} source={require('../images/splash.png')} />
