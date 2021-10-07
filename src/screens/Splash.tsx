@@ -14,6 +14,7 @@ const Splash: React.FC<Props> = ({fetchGenres, genresReducer}) => {
   const {isFetching, genres, error} = genresReducer;
 
   useEffect(() => {
+    console.log(genres.length);
     !genres.length && fetchGenres();
   }, []);
 
