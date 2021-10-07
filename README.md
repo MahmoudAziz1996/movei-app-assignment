@@ -11,7 +11,7 @@ Discover Movies and TV shows
 ## Installation
 
 ```sh
-  git clone https://github.com/MahmoudAziz1996/movei-app-assignment
+  git clone https://github.com/MahmoudAziz1996/movies-app-assignment
   
   npm install or yarn install
   
