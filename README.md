@@ -2,6 +2,11 @@
 
 Discover Movies and TV shows
 
+   
+## Screenshots
+<kbd><img src="src/screenshots/1.png" wihth="450" height="500"></kbd>
+<kbd><img src="src/screenshots/3.png" wihth="450" height="500"></kbd>
+<kbd><img src="src/screenshots/5.png" wihth="450" height="500"></kbd>
 
 ## Installation
 
