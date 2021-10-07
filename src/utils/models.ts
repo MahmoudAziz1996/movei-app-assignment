@@ -1,8 +1,3 @@
-export type DonutChartModel = {
-  dimension: number;
-  innerRadius: number;
-};
-
 export interface Movie {
   adult: boolean;
   backdrop_path: string;
@@ -44,4 +39,19 @@ export type MovieResponse = {
 export type Creditsesponse = {
   id: number;
   cast: Array<Cast>;
+};
+
+export type Genre = {
+  id: number;
+  name: Array<Cast>;
+};
+
+export type GenreResponse = {
+  genres: Array<Genre>;
+};
+
+export type GenresReducer = {
+  genres: Array<Genre>;
+  isFetching: boolean;
+  error: boolean;
 };
